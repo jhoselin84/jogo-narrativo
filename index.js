@@ -7,9 +7,50 @@
 const prompt = require("prompt-sync")()
 require("colors")
 
-// ======================
+
+
+
+console.clear()
+
+console.log("╔══════════════════════════════════════════════╗".green)
+console.log("║                                              ║".green)
+console.log("║     🌲 BEM-VINDO À FLORESTA SOMBRIA 🌲      ║".green)
+console.log("║                                              ║".green)
+console.log("╚══════════════════════════════════════════════╝".green)
+
+console.log("")
+console.log("📖 História:".magenta)
+
+console.log("")
+console.log("Chapeuzinho Vermelho precisa atravessar")
+console.log("a floresta para encontrar sua vovó.")
+console.log("")
+console.log("Mas cuidado...".red)
+console.log("🐺 O lobo pode aparecer a qualquer momento!")
+console.log("")
+console.log("❓ Durante a jornada, você encontrará")
+console.log("charadas misteriosas.")
+console.log("")
+console.log("🧪 Algumas vezes você poderá encontrar")
+console.log("poções mágicas para sobreviver.")
+console.log("")
+console.log("🎯 Seu objetivo é ajudar Chapeuzinho")
+console.log("a encontrar sua vovó e sair viva da floresta!")
+console.log("")
+
+console.log("========================================")
+
+prompt("Pressione ENTER para começar...")
+
+
+
+
+
+
+
+
 // VARIÁVEIS
-// ======================
+
 
 
 let nomeJogador
@@ -23,18 +64,15 @@ let posicao = 0
 let objetivo = 5
 let quantidadePocoes = 1
 
-// ARRAY (inventário)
+
 let inventario = ["🧪 Poção"]
 
-// ======================
-// FUNÇÃO MENU
-// ======================
+
 
 function mostrarMenu() {
 
     console.log("====================================")
-    console.log("🎮 CHAPEUZINHO VERMELHO".red)
-    console.log("====================================")
+    
 
     console.log("1 - Jogar".green)
     console.log("2 - Inventário".cyan)
@@ -42,9 +80,7 @@ function mostrarMenu() {
 
 }
 
-// ======================
-// FUNÇÃO INVENTÁRIO
-// ======================
+
 
 function mostrarInventario() {
 
@@ -52,7 +88,7 @@ function mostrarInventario() {
     console.log("🎒 INVENTÁRIO".cyan)
     console.log("====================================".cyan)
 
-    // FOR
+    
     for (let i = 0; i < inventario.length; i++) {
 
         console.log((i + 1) + " - " + inventario[i])
@@ -63,9 +99,7 @@ function mostrarInventario() {
 
 }
 
-// ======================
-// FUNÇÃO STATUS
-// ======================
+
 
 function mostrarStatus() {
 
@@ -75,9 +109,8 @@ function mostrarStatus() {
 
 }
 
-// ======================
-// FUNÇÃO CHARADAS
-// ======================
+
+// CHARADAS
 
 function fazerPergunta() {
 
@@ -173,9 +206,9 @@ function fazerPergunta() {
 
 }
 
-// ======================
-// INÍCIO DO JOGO
-// ======================
+
+// INÍCIO 
+
 
 nomeJogador = prompt("Digite seu nome: ".green)
 
@@ -192,9 +225,9 @@ do {
 
     switch (opcao) {
 
-        // ======================
-        // JOGAR
-        // ======================
+        
+
+       
 
         case "1":
 
@@ -208,16 +241,15 @@ do {
 
                 let caminho = prompt("👉 Caminho: ")
 
-                // OPERADOR LÓGICO
+               
                 if (caminho == "1" || caminho == "2" || caminho == "3") {
 
-                    // EVENTO ALEATÓRIO
-                    let evento = Math.floor(Math.random() * 3)
+                   
+                    let evento = Math.floor(Math.random() * 4)
 
-                    // ======================
-                    // LOBO
-                    // ======================
-
+                    
+                   
+                    
                     if (evento == 0) {
 
                         console.log("")
@@ -242,9 +274,9 @@ do {
 
                     }
 
-                    // ======================
+                    
                     // CHARADA
-                    // ======================
+                    
 
                     else if (evento == 1) {
 
@@ -268,7 +300,7 @@ do {
 
                         }
 
-                        // EVITAR NEGATIVO
+                    
                         if (posicao < 0) {
 
                             posicao = 0
@@ -288,10 +320,7 @@ do {
 
                     }
 
-                    // ======================
-                    // POÇÃO
-                    // ======================
-
+                    
                     else {
 
                         console.log("")
@@ -303,15 +332,15 @@ do {
 
                     }
 
-                    // STATUS
+                    
                     mostrarStatus()
 
-                    // FINAL FELIZ
+                    
                     if (posicao >= objetivo) {
 
                         console.log("")
-                        console.log("🎉 Você encontrou a vovó!".green)
-                        console.log("🏆 FINAL FELIZ!".rainbow)
+                        console.log("🎉 Você encontrou a vovó!".yellow)
+                        
 
                         jogando = false
 
@@ -335,9 +364,7 @@ do {
 
             break
 
-        // ======================
-        // INVENTÁRIO
-        // ======================
+        
 
         case "2":
 
@@ -349,10 +376,7 @@ do {
 
             break
 
-        // ======================
-        // SAIR
-        // ======================
-
+        
         case "3":
 
             console.log("👋 Saindo do jogo...".yellow)
@@ -361,9 +385,7 @@ do {
 
             break
 
-        // ======================
-        // OPÇÃO INVÁLIDA
-        // ======================
+        
 
         default:
 
